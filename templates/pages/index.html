@@ -13,8 +13,7 @@
           <h1 class="display-4 mb-4">
             Property Searching Just Got Easy
           </h1>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-            voluptatum tempore! Consectetur, id commodi!</p>
+          <p class="lead">&nbsp;</p>
           <div class="search">
             <form action="{% url 'search' %}">
               <!-- Form Row 1 -->
@@ -88,7 +87,7 @@
                 <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
                 <div class="card-img-overlay">
                   <h2>
-                    <span class="badge badge-secondary text-white">${{ listing.price | intcomma }}</span>
+                    <span class="badge badge-secondary text-white">{{ listing.price | intcomma }}€</span>
                   </h2>
                 </div>
                 <div class="card-body">

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
+    'rent.apps.RentConfig',
     'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',
     'listings.apps.ListingsConfig',
