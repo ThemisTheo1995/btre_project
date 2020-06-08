@@ -11,7 +11,7 @@
       <div class="home-search p-5">
         <div class="overlay p-5">
           <h1 class="display-4 mb-4">
-            Property Searching Just Got So Easy
+            Property Searching Just Got Easy
           </h1>
           <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
             voluptatum tempore! Consectetur, id commodi!</p>
@@ -59,7 +59,12 @@
                   </select>
                 </div>
               </div>
-              <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+              <div class="form-row">
+                <div class ="col-md-6 mb-3"><button class="btn btn-secondary btn-block mt-4" type="submit">For Sale</button>
+                </div>
+                <div class ="col-md-6 mb-3"><button class="btn btn-secondary btn-block mt-4" type="submit">To Rent</button>
+                </div>
+              </div>
             </form>
           </div>
         </div>
@@ -95,7 +100,7 @@
                   <hr>
                   <div class="row py-2 text-secondary">
                     <div class="col-6">
-                      <i class="fas fa-th-large"></i> Sq mtrs: {{ listing.sqft }}</div>
+                      <i class="fas fa-th-large"></i> Sq meters: {{ listing.sqft }}</div>
                     <div class="col-6">
                       <i class="fas fa-car"></i> Garage: {{ listing.garage }}</div>
                   </div>

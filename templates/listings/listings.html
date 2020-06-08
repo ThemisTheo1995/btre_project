@@ -2,7 +2,7 @@
 
 {% load humanize %}
 
-{% block title %} | Browse Property Listings {% endblock %}
+{% block title %} | Browse Property For Sale {% endblock %}
 
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
@@ -25,7 +25,7 @@
             <a href="{% url 'index' %}">
               <i class="fas fa-home"></i> Home</a>
           </li>
-          <li class="breadcrumb-item active"> Browse Listings</li>
+          <li class="breadcrumb-item active"> For Sale</li>
         </ol>
       </nav>
     </div>
@@ -54,7 +54,7 @@
                   <hr>
                   <div class="row py-2 text-secondary">
                     <div class="col-6">
-                      <i class="fas fa-th-large"></i> Sq mtrs: {{ listing.sqft }}</div>
+                      <i class="fas fa-th-large"></i> Sq meters: {{ listing.sqft }}</div>
                     <div class="col-6">
                       <i class="fas fa-car"></i> Garages: {{ listing.garage }}</div>
                   </div>
