@@ -27,9 +27,9 @@ def listing(request, listing_id):
 
   return render(request, 'listings/listing.html', context)
 
-def search(request):
-  queryset_list = Listing.objects.order_by('-list_date')
-
+def salesearch(request):
+  queryset_list = Listing.objects.order_by('-list_date').filter(is_for_sale=True)
+  
   # Keywords
   if 'keywords' in request.GET:
     keywords = request.GET['keywords']
@@ -68,4 +68,5 @@ def search(request):
     'values': request.GET
   }
 
-  return render(request, 'listings/search.html', context)
+  return render(request, 'listings/salesearch.html', context)
+  return
