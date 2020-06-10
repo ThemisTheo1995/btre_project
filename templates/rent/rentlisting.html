@@ -90,6 +90,70 @@
             </div>
             {% endif %}
           </div>
+          
+           <!--Map-->
+          
+           <div class="row mb-5">
+            <div class="col-md-12">
+              <style>
+                #map{
+                  height: 250px;
+                  width:100%;
+                }
+              </style>
+              <div id="map"></div>
+              <script>
+
+                let lat = "{{rentlisting.lat}}";
+                let lng = "{{rentlisting.lng}}";
+                let geo_lat = parseFloat(lat);
+                let geo_lng = parseFloat(lng);
+
+                function initMap(){
+                  // Map options
+                  var myLatLng = {lat:geo_lat, lng:geo_lng};
+                  var options = {
+                    zoom:11,
+                    center:myLatLng
+                  };
+
+                  var head = document.getElementsByTagName('head')[0];
+
+                  // Save the original method
+                  var insertBefore = head.insertBefore;
+                  
+                  // Replace it!
+                  head.insertBefore = function (newElement, referenceElement) {
+                  
+                      if (newElement.href && newElement.href.indexOf('//fonts.googleapis.com/css?family=Roboto') > -1) {
+                  
+                          console.info('Prevented Roboto from loading!');
+                          return;
+                      }
+                  
+                      insertBefore.call(head, newElement, referenceElement);
+                  };
+
+                  // New Map
+                  var map = new
+                  google.maps.Map(document.getElementById('map'),options);
+
+                  // Add Marker
+                  var marker = new google.maps.Marker({
+                    position:{lat:geo_lat,lng:geo_lng},
+                    map:map,
+                    animation: google.maps.Animation.DROP,
+                    
+                  });
+                  
+
+                }
+                
+              </script>
+               
+            </div>
+          </div>
+
           <!-- Fields -->
           <div class="row mb-5 fields">
             <div class="col-md-6">
