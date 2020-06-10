@@ -26,6 +26,8 @@ class Listing(models.Model):
   is_published = models.BooleanField(default=True)
   is_for_sale = models.BooleanField(default=False)
   is_to_rent = models.BooleanField(default=False)
+  lat = models.DecimalField(max_digits=9, decimal_places=6)
+  lng = models.DecimalField(max_digits=9, decimal_places=6)
   list_date = models.DateTimeField(default=datetime.now, blank=True)
   def __str__(self):
     return self.title

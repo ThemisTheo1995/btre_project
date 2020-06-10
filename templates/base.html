@@ -24,7 +24,9 @@
   <!-- NavBar -->
   {% include 'partials/_navbar.html' %}
     <!-- Main Content -->
-  {% block content %} {% endblock %}
+  {% block content %} 
+  
+  {% endblock %}
   <!-- Footer -->
   {% include 'partials/_footer.html' %}
   
@@ -33,6 +35,10 @@
   <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
   <script src="{% static 'js/lightbox.min.js' %} "></script>
   <script src="{% static 'js/main.js' %} "></script>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTvH62eDRDBLJQSMFReQsIpHXkY29QFcg&callback=initMap">
+  </script>
+  
 </body>
 
 </html>

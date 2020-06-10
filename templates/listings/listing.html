@@ -50,46 +50,110 @@
             {% if listing.photo_1 %}
             <div class="col-md-2">
               <a href="{{ listing.photo_1.url }}" data-lightbox="home-images">
-                <img src="{{ listing.photo_1.url }}" alt="" class="img-fluid">
+                <img src="{{ listing.photo_1.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
               </a>
             </div>
             {% endif %}
             {% if listing.photo_2 %}
             <div class="col-md-2">
               <a href="{{ listing.photo_2.url }}" data-lightbox="home-images">
-                <img src="{{ listing.photo_2.url }}" alt="" class="img-fluid">
+                <img src="{{ listing.photo_2.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
               </a>
             </div>
             {% endif %}
             {% if listing.photo_3 %}
             <div class="col-md-2">
               <a href="{{ listing.photo_3.url }}" data-lightbox="home-images">
-                <img src="{{ listing.photo_3.url }}" alt="" class="img-fluid">
+                <img src="{{ listing.photo_3.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
               </a>
             </div>
             {% endif %}
             {% if listing.photo_4 %}
             <div class="col-md-2">
               <a href="{{ listing.photo_4.url }}" data-lightbox="home-images">
-                <img src="{{ listing.photo_4.url }}" alt="" class="img-fluid">
+                <img src="{{ listing.photo_4.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
               </a>
             </div>
             {% endif %}
             {% if listing.photo_5 %}
             <div class="col-md-2">
               <a href="{{ listing.photo_5.url }}" data-lightbox="home-images">
-                <img src="{{ listing.photo_5.url }}" alt="" class="img-fluid">
+                <img src="{{ listing.photo_5.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
               </a>
             </div>
             {% endif %}
             {% if listing.photo_6 %}
             <div class="col-md-2">
               <a href="{{ listing.photo_6.url }}" data-lightbox="home-images">
-                <img src="{{ listing.photo_6.url }}" alt="" class="img-fluid">
+                <img src="{{ listing.photo_6.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
               </a>
             </div>
             {% endif %}
           </div>
+
+          <!--Map-->
+          
+          <div class="row mb-5">
+            <div class="col-md-12">
+              <style>
+                #map{
+                  height: 250px;
+                  width:100%;
+                }
+              </style>
+              <div id="map"></div>
+              <script>
+
+                let lat = "{{listing.lat}}";
+                let lng = "{{listing.lng}}";
+                let geo_lat = parseFloat(lat);
+                let geo_lng = parseFloat(lng);
+
+                function initMap(){
+                  // Map options
+                  var myLatLng = {lat:geo_lat, lng:geo_lng};
+                  var options = {
+                    zoom:11,
+                    center:myLatLng
+                  };
+
+                  var head = document.getElementsByTagName('head')[0];
+
+                  // Save the original method
+                  var insertBefore = head.insertBefore;
+                  
+                  // Replace it!
+                  head.insertBefore = function (newElement, referenceElement) {
+                  
+                      if (newElement.href && newElement.href.indexOf('//fonts.googleapis.com/css?family=Roboto') > -1) {
+                  
+                          console.info('Prevented Roboto from loading!');
+                          return;
+                      }
+                  
+                      insertBefore.call(head, newElement, referenceElement);
+                  };
+
+                  // New Map
+                  var map = new
+                  google.maps.Map(document.getElementById('map'),options);
+
+                  // Add Marker
+                  var marker = new google.maps.Marker({
+                    position:{lat:geo_lat,lng:geo_lng},
+                    map:map,
+                    animation: google.maps.Animation.DROP,
+                    
+                  });
+                  
+
+                }
+                
+              </script>
+               
+            </div>
+          </div>
+
           <!-- Fields -->
           <div class="row mb-5 fields">
             <div class="col-md-6">
