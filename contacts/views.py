@@ -26,12 +26,12 @@ def contact(request):
 
     contact.save()
 
-      #Send email
+    # Send email
     send_mail(
        'Property Listing Inquiry',
        'There has been an inquiry for ' + listing + '. Sign into the admin panel for more info',
        'themisstheodoratos@gmail.com',
-       [realtor_email,'themistheodoratos@gmail.com'],
+       [realtor_email, 'themistheodoratos@gmail.com'],
        fail_silently=False
      )
 
