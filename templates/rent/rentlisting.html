@@ -95,12 +95,54 @@
           
            <div class="row mb-5">
             <div class="col-md-12">
-              <style>
-                #map{
-                  height: 250px;
-                  width:100%;
-                }
-              </style>
+              <button class="collapsible">Location on the Map</button>
+              <div class="content">
+                <!--CSS-->
+                <style>
+                  .collapsible:after {
+                    content: '\002B'; /* Unicode character for "plus" sign (+) */
+                    color: #ffff;
+                    font-weight: bold;
+                    float: right;
+                    margin-left: 5px;
+                  }
+                  
+              .collapsible.active:after {
+                    content: "\2212"; /* Unicode character for "minus" sign (-) */
+                    
+                  }
+                  
+              .collapsible {
+                      background-color: rgba(32, 134, 107, 0.8);
+                      color: white;
+                      cursor: pointer;
+                      padding: 12px;
+                      width: 100%;
+                      border: none;
+                      text-align: left;
+                      outline: none;
+                      font-size: 16px;
+                      border-radius: 0.3rem;
+                    
+                    }
+              .collapsible:hover {
+                      background-color: rgb(18, 97, 76);
+                      
+                    }
+                    
+              .content {
+                      max-height: 0;
+                      padding: px 18px;
+                      overflow: hidden;
+                      transition: max-height 0.2s ease-out;
+                      background-color: #ffff;
+                    }
+                  
+              #map{
+                      height: 250px;
+                      width:100%;
+                    }
+                </style>
               <div id="map"></div>
               <script>
 
@@ -150,8 +192,27 @@
                 }
                 
               </script>
+            </div>
               <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTvH62eDRDBLJQSMFReQsIpHXkY29QFcg&callback=initMap">
               </script>
+
+              <!--Javascript for the expandable box-->
+              <script>
+                var coll = document.getElementsByClassName("collapsible");
+                var i;
+                
+                for (i = 0; i < coll.length; i++) {
+                  coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight){
+                      content.style.maxHeight = null;
+                    } else {
+                      content.style.maxHeight = content.scrollHeight + "px";
+                    } 
+                  });
+                }
+                </script>
                
             </div>
           </div>

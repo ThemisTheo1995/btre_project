@@ -92,67 +92,127 @@
           </div>
 
           <!--Map-->
-          
+
           <div class="row mb-5">
             <div class="col-md-12">
-              <style>
-                #map{
-                  height: 250px;
-                  width:100%;
-                }
-              </style>
-              <div id="map"></div>
-              <script>
-
-                let lat = "{{listing.lat}}";
-                let lng = "{{listing.lng}}";
-                let geo_lat = parseFloat(lat);
-                let geo_lng = parseFloat(lng);
-
-                function initMap(){
-                  // Map options
-                  var myLatLng = {lat:geo_lat, lng:geo_lng};
-                  var options = {
-                    zoom:11,
-                    center:myLatLng
-                  };
-
-                  var head = document.getElementsByTagName('head')[0];
-
-                  // Save the original method
-                  var insertBefore = head.insertBefore;
+              <button class="collapsible">Location on the Map</button>
+              <div class="content">
+                <!--CSS-->
+                <style>
+                  .collapsible:after {
+                    content: '\002B'; /* Unicode character for "plus" sign (+) */
+                    color: #ffff;
+                    font-weight: bold;
+                    float: right;
+                    margin-left: 5px;
+                  }
                   
-                  // Replace it!
-                  head.insertBefore = function (newElement, referenceElement) {
-                  
-                      if (newElement.href && newElement.href.indexOf('//fonts.googleapis.com/css?family=Roboto') > -1) {
-                  
-                          console.info('Prevented Roboto from loading!');
-                          return;
-                      }
-                  
-                      insertBefore.call(head, newElement, referenceElement);
-                  };
-
-                  // New Map
-                  var map = new
-                  google.maps.Map(document.getElementById('map'),options);
-
-                  // Add Marker
-                  var marker = new google.maps.Marker({
-                    position:{lat:geo_lat,lng:geo_lng},
-                    map:map,
-                    animation: google.maps.Animation.DROP,
+              .collapsible.active:after {
+                    content: "\2212"; /* Unicode character for "minus" sign (-) */
                     
-                  });
+                  }
                   
-
-                }
+              .collapsible {
+                      background-color: rgba(32, 134, 107, 0.8);
+                      color: white;
+                      cursor: pointer;
+                      padding: 12px;
+                      width: 100%;
+                      border: none;
+                      text-align: left;
+                      outline: none;
+                      font-size: 16px;
+                      border-radius: 0.3rem;
+                    
+                    }
+              .collapsible:hover {
+                      background-color: rgb(18, 97, 76);
+                      
+                    }
+                    
+              .content {
+                      max-height: 0;
+                      padding: px 18px;
+                      overflow: hidden;
+                      transition: max-height 0.2s ease-out;
+                      background-color: #ffff;
+                    }
+                  
+              #map{
+                      height: 250px;
+                      width:100%;
+                    }
+                </style>
                 
-              </script>
-              <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTvH62eDRDBLJQSMFReQsIpHXkY29QFcg&callback=initMap">
-              </script>
-            </div>
+                <!--Google Maps API-->
+                <div id="map"></div>
+                <script>
+  
+                  let lat = "{{listing.lat}}";
+                  let lng = "{{listing.lng}}";
+                  let geo_lat = parseFloat(lat);
+                  let geo_lng = parseFloat(lng);
+  
+                  function initMap(){
+                    // Map options
+                    var myLatLng = {lat:geo_lat, lng:geo_lng};
+                    var options = {
+                      zoom:11,
+                      center:myLatLng
+                    };
+  
+                    var head = document.getElementsByTagName('head')[0];
+  
+                    // Save the original method
+                    var insertBefore = head.insertBefore;
+                    
+                    // Replace it!
+                    head.insertBefore = function (newElement, referenceElement) {
+                    
+                        if (newElement.href && newElement.href.indexOf('//fonts.googleapis.com/css?family=Roboto') > -1) {
+                    
+                            console.info('Prevented Roboto from loading!');
+                            return;
+                        }
+                    
+                        insertBefore.call(head, newElement, referenceElement);
+                    };
+  
+                    // New Map
+                    var map = new
+                    google.maps.Map(document.getElementById('map'),options);
+  
+                    // Add Marker
+                    var marker = new google.maps.Marker({
+                      position:{lat:geo_lat,lng:geo_lng},
+                      map:map,
+                      animation: google.maps.Animation.DROP,
+                      
+                    });
+                  }
+                </script>
+              </div>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTvH62eDRDBLJQSMFReQsIpHXkY29QFcg&callback=initMap">
+                </script>
+
+                <!--Javascript for the expandable box-->
+                <script>
+                  var coll = document.getElementsByClassName("collapsible");
+                  var i;
+                  
+                  for (i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", function() {
+                      this.classList.toggle("active");
+                      var content = this.nextElementSibling;
+                      if (content.style.maxHeight){
+                        content.style.maxHeight = null;
+                      } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                      } 
+                    });
+                  }
+                  </script>
+           </div>
           </div>
 
           <!-- Fields -->
