@@ -14,6 +14,8 @@
         </div>
       </div>
     </div>
+
+    
   </section>
 
   <!-- Breadcrumb -->
@@ -31,6 +33,13 @@
     </div>
   </section>
 
+  <script>
+
+  </script>
+  <style>
+
+  </style>
+ 
   <!-- Listings -->
   <section id="listings" class="py-4">
     <div class="container">
@@ -40,17 +49,24 @@
           <div class="col-md-6 col-lg-4 mb-4">
               <div class="card listing-preview">
                 <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
-                <div class="card-img-overlay">
-                  <h2>
-                    <span class="badge badge-secondary text-white">{{ listing.price | intcomma }}€</span>
-                  </h2>
-                </div>
                 <div class="card-body">
-                  <div class="listing-heading text-center">
-                    <h4 class="text-primary">{{ listing.title }}</h4>
+                <div class="row py-2 text-secondary">
+                <div class="col-6">
+                  <div class="listing-heading">
+                    
+                    <b><a href= "{% url 'listing' listing.id %}" class="text-primary">{{ listing.title }} </a></b>
                     <p>
                       <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}</p>
                   </div>
+                </div>
+                <div class="col-6">
+                  <div class="card-img-overlay">
+                    <h2>
+                      <span class="badge badge-secondary text-white">{{ listing.price | intcomma }}€</span>
+                    </h2>
+                  </div>
+                </div>
+                </div>
                   <hr>
                   <div class="row py-2 text-secondary">
                     <div class="col-6">
@@ -73,7 +89,6 @@
                     <div class="col-6">
                       <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
                   </div>
-                  <hr>
                   <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
                 </div>
               </div>
@@ -85,6 +100,7 @@
           </div>
         {% endif %}
       </div>
+
 
       <div class="row">
         <div class="col-md-12">

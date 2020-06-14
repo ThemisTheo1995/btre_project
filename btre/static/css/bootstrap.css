@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem; }
+  margin-bottom: 0; }
 
 abbr[title],
 abbr[data-original-title] {
@@ -349,10 +349,10 @@ h6, .h6 {
   line-height: 1.2; }
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1); }
+  border-top: 4px solid rgba(0, 0, 0, 0.1); }
 
 small,
 .small {
@@ -445,6 +445,7 @@ pre {
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll; }
+
 
 .container {
   width: 100%;
@@ -3065,7 +3066,7 @@ input[type="button"].btn-block {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem; }
+  border-radius: 0.4rem; }
   .card > hr {
     margin-right: 0;
     margin-left: 0; }
@@ -3125,11 +3126,13 @@ input[type="button"].btn-block {
 
 .card-img-overlay {
   position: absolute;
-  top: 0;
+  top: 0px;
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1.25rem; }
+  padding-right: 15px;
+  padding-left: 15px;
+   }
 
 .card-img {
   width: 100%;
@@ -3137,8 +3140,9 @@ input[type="button"].btn-block {
 
 .card-img-top {
   width: 100%;
-  border-top-left-radius: calc( 0.25rem - 1px);
-  border-top-right-radius: calc( 0.25rem - 1px); }
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+   }
 
 .card-img-bottom {
   width: 100%;
