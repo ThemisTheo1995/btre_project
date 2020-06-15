@@ -1,3 +1,4 @@
+ 
 .lb-loader,
 .lightbox {
   text-align: center;
@@ -176,5 +177,3 @@ html.lb-disable-scrolling {
   filter: alpha(Opacity=100);
   opacity: 1;
 }
-
-
