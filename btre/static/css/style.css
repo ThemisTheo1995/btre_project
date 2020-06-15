@@ -1,11 +1,15 @@
 .btn-secondary {
   color: #fff !important; }
 
+.fotorama{
+    border-radius: 0.4rem;
+  }
+
 img {
   width: 100%; }
 
 .logo {
-  width: 140px; }
+  width: 80px; }
 
 .navbar {
   opacity: 0.9;

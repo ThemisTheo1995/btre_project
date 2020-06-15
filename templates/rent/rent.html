@@ -32,6 +32,7 @@
   </section>
 
   <!-- Listings -->
+  <!--Img section-->
   <section id="listings" class="py-4">
     <div class="container">
       <div class="row">
@@ -39,7 +40,31 @@
           {% for rentlisting in rent %}
           <div class="col-md-6 col-lg-4 mb-4">
               <div class="card listing-preview">
-                <img class="card-img-top" src="{{ rentlisting.photo_main.url }}" alt="">
+                <div class="fotorama" data-nav="thumbs">
+                  {%if rentlisting.photo_main.url != null %}
+                  <img src="{{rentlisting.photo_main.url}}">
+                  {%endif%}
+                  {%if rentlisting.photo_1.url != null %}
+                  <img src="{{rentlisting.photo_1.url}}">
+                  {%endif%}
+                  {%if rentlisting.photo_2.url != null %}
+                  <img src="{{rentlisting.photo_2.url}}">
+                  {%endif%}
+                  {%if rentlisting.photo_3.url != null %}
+                  <img src="{{rentlisting.photo_3.url}}">
+                  {%endif%}
+                  {%if rentlisting.photo_4.url != null %}
+                  <img src="{{rentlisting.photo_4.url}}">
+                  {%endif%}
+                  {%if rentlisting.photo_5.url != null %}
+                  <img src="{{rentlisting.photo_5.url}}">
+                  {%endif%}
+                  {%if rentlisting.photo_6.url != null %}
+                  <img src="{{rentlisting.photo_6.url}}">
+                  {%endif%}
+                </div>
+                &nbsp;
+                <!--Title section-->
                 <div class="card-body">
                   <div class="row py-2 text-secondary">
                   <div class="col-6">
@@ -57,6 +82,7 @@
                     </div>
                   </div>
                   </div>
+                  <!--Details section-->
                   <hr>
                   <div class="row py-2 text-secondary">
                     <div class="col-6">

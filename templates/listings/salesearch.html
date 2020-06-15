@@ -95,6 +95,7 @@
   </section>
 
   <!-- Listings -->
+  <!--Img section-->
   <section id="listings" class="py-4">
     <div class="container">
       <div class="row">
@@ -102,7 +103,31 @@
           {% for listing in listings %}
           <div class="col-md-6 col-lg-4 mb-4">
               <div class="card listing-preview">
-                <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
+                <div class="fotorama" data-nav="thumbs">
+                  {%if listing.photo_main.url != null %}
+                  <img src="{{listing.photo_main.url}}">
+                  {%endif%}
+                  {%if listing.photo_1.url != null %}
+                  <img src="{{listing.photo_1.url}}">
+                  {%endif%}
+                  {%if listing.photo_2.url != null %}
+                  <img src="{{listing.photo_2.url}}">
+                  {%endif%}
+                  {%if listing.photo_3.url != null %}
+                  <img src="{{listing.photo_3.url}}">
+                  {%endif%}
+                  {%if listing.photo_4.url != null %}
+                  <img src="{{listing.photo_4.url}}">
+                  {%endif%}
+                  {%if listing.photo_5.url != null %}
+                  <img src="{{listing.photo_5.url}}">
+                  {%endif%}
+                  {%if listing.photo_6.url != null %}
+                  <img src="{{listing.photo_6.url}}">
+                  {%endif%}
+                </div>
+                &nbsp;
+                <!--Title section-->
                 <div class="card-body">
                   <div class="row py-2 text-secondary">
                   <div class="col-6">
@@ -120,6 +145,7 @@
                     </div>
                   </div>
                   </div>
+                  <!--Details section-->
                   <hr>
                   <div class="row py-2 text-secondary">
                     <div class="col-6">
@@ -142,7 +168,7 @@
                     <div class="col-6">
                       <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
                   </div>
-                  <hr>
+                  
                   <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
                 </div>
               </div>
