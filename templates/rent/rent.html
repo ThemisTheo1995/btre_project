@@ -41,29 +41,29 @@
           <div class="col-md-6 col-lg-4 mb-4">
               <div class="card listing-preview">
                 <div class="fotorama" data-nav="thumbs">
-                  {%if rentlisting.photo_main.url != null %}
+                  {%if rentlisting.photo_main %}
                   <img src="{{rentlisting.photo_main.url}}">
                   {%endif%}
-                  {%if rentlisting.photo_1.url != null %}
+                  {%if rentlisting.photo_1%}
                   <img src="{{rentlisting.photo_1.url}}">
                   {%endif%}
-                  {%if rentlisting.photo_2.url != null %}
+                  {%if rentlisting.photo_2 %}
                   <img src="{{rentlisting.photo_2.url}}">
                   {%endif%}
-                  {%if rentlisting.photo_3.url != null %}
+                  {%if rentlisting.photo_3%}
                   <img src="{{rentlisting.photo_3.url}}">
                   {%endif%}
-                  {%if rentlisting.photo_4.url != null %}
+                  {%if rentlisting.photo_4 %}
                   <img src="{{rentlisting.photo_4.url}}">
                   {%endif%}
-                  {%if rentlisting.photo_5.url != null %}
+                  {%if rentlisting.photo_5 %}
                   <img src="{{rentlisting.photo_5.url}}">
                   {%endif%}
-                  {%if rentlisting.photo_6.url != null %}
+                  {%if rentlisting.photo_6 %}
                   <img src="{{rentlisting.photo_6.url}}">
                   {%endif%}
                 </div>
-                &nbsp;
+              
                 <!--Title section-->
                 <div class="card-body">
                   <div class="row py-2 text-secondary">
@@ -102,7 +102,7 @@
                       <i class="fas fa-user"></i> {{ rentlisting.realtor }}</div>
                   </div>
                   <div class="row text-secondary pb-2">
-                    <div class="col-6">
+                    <div class="col-12">
                       <i class="fas fa-clock"></i> {{ rentlisting.list_date | timesince }}</div>
                   </div>
                   <a href="{% url 'rentlisting' rentlisting.id %}" class="btn btn-primary btn-block">More Info</a>

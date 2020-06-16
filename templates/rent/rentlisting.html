@@ -42,57 +42,35 @@
     <div class="container">
       <a href="{% url 'rent' %}" class="btn btn-light mb-4">Back Listings</a>
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-9">          
           <!-- Home Main Image -->
-          <img src="{{ rentlisting.photo_main.url }}" alt="" class="img-main img-fluid mb-3">
-          <!-- Thumbnails -->
           <div class="row mb-5 thumbs">
-            {% if rentlisting.photo_1 %}
-            <div class="col-md-2">
-              <a href="{{ rentlisting.photo_1.url }}" data-lightbox="home-images">
-                <img src="{{ rentlisting.photo_1.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
-              </a>
+            <div class="fotorama" data-nav="thumbs">
+              {%if rentlisting.photo_main %}
+              <img src="{{rentlisting.photo_main.url}}">
+              {%endif%}
+              {%if rentlisting.photo_1%}
+              <img src="{{rentlisting.photo_1.url}}">
+              {%endif%}
+              {%if rentlisting.photo_2 %}
+              <img src="{{rentlisting.photo_2.url}}">
+              {%endif%}
+              {%if rentlisting.photo_3%}
+              <img src="{{rentlisting.photo_3.url}}">
+              {%endif%}
+              {%if rentlisting.photo_4 %}
+              <img src="{{rentlisting.photo_4.url}}">
+              {%endif%}
+              {%if rentlisting.photo_5 %}
+              <img src="{{rentlisting.photo_5.url}}">
+              {%endif%}
+              {%if rentlisting.photo_6 %}
+              <img src="{{rentlisting.photo_6.url}}">
+              {%endif%}
             </div>
-            {% endif %}
-            {% if rentlisting.photo_2 %}
-            <div class="col-md-2">
-              <a href="{{ rentlisting.photo_2.url }}" data-lightbox="home-images">
-                <img src="{{ rentlisting.photo_2.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
-              </a>
-            </div>
-            {% endif %}
-            {% if rentlisting.photo_3 %}
-            <div class="col-md-2">
-              <a href="{{ rentlisting.photo_3.url }}" data-lightbox="home-images">
-                <img src="{{ rentlisting.photo_3.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
-              </a>
-            </div>
-            {% endif %}
-            {% if rentlisting.photo_4 %}
-            <div class="col-md-2">
-              <a href="{{ rentlisting.photo_4.url }}" data-lightbox="home-images">
-                <img src="{{ rentlisting.photo_4.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
-              </a>
-            </div>
-            {% endif %}
-            {% if rentlisting.photo_5 %}
-            <div class="col-md-2">
-              <a href="{{ rentlisting.photo_5.url }}" data-lightbox="home-images">
-                <img src="{{ rentlisting.photo_5.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
-              </a>
-            </div>
-            {% endif %}
-            {% if rentlisting.photo_6 %}
-            <div class="col-md-2">
-              <a href="{{ rentlisting.photo_6.url }}" data-lightbox="home-images">
-                <img src="{{ rentlisting.photo_6.url }}" alt="" class="img-fluid" style="margin-top: 10px;">
-              </a>
-            </div>
-            {% endif %}
           </div>
           
            <!--Map-->
-          
            <div class="row mb-5">
             <div class="col-md-12">
               <button class="collapsible">Location on the Map</button>
@@ -190,7 +168,6 @@
                   
 
                 }
-                
               </script>
             </div>
               <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTvH62eDRDBLJQSMFReQsIpHXkY29QFcg&callback=initMap">
