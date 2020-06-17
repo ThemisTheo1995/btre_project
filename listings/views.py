@@ -1,8 +1,10 @@
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import price_choices, bedroom_choices, state_choices
-
+from django.http import HttpResponse
 from .models import Listing
+
+
 
 def index(request):
   listings = Listing.objects.order_by('-list_date').filter(is_published=True, is_for_sale = True)
@@ -40,7 +42,7 @@ def salesearch(request):
   if 'city' in request.GET:
     city = request.GET['city']
     if city:
-      queryset_list = queryset_list.filter(city__iexact=city)
+      queryset_list = queryset_list.filter(city__icontains=city)
 
   # State
   if 'state' in request.GET:

@@ -151,3 +151,11 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+
+# Email settings
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'themisstheodoratos@gmail.com'
+EMAIL_HOST_PASSWORD = 'themistheodoratos@yahoo.gr'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

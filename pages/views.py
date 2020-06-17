@@ -6,10 +6,10 @@ from listings.models import Listing
 from realtors.models import Realtor
 
 def index(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
+    listings_all = Listing.objects.order_by('-list_date').filter(is_published=True)[:6]
 
     context = {
-        'listings': listings,
+        'listings_all': listings_all,
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices
@@ -31,3 +31,6 @@ def about(request):
     }
 
     return render(request, 'pages/about.html', context)
+
+def test(request):
+    return render(request, 'email/inquiry.html')

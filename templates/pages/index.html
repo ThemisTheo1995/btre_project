@@ -27,9 +27,17 @@
 
                 <div class="col-md-4 mb-3">
                   <label class="sr-only">City</label>
-                  <input type="text" name="city" class="form-control" placeholder="City">
+                  <input type="text" name="city" id="city_search" class="form-control" placeholder="City">
                 </div>
 
+                <script>
+                  function activatePlacesSearch(){
+                  var input = document.getElementById('city_search');
+                  var autocomplete = new google.maps.places.Autocomplete(input);
+                }
+                </script>
+                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTvH62eDRDBLJQSMFReQsIpHXkY29QFcg&libraries=places&callback=activatePlacesSearch"></script>
+                
                 <div class="col-md-4 mb-3">
                   <label class="sr-only">State</label>
                   <select name="state" class="form-control">
@@ -84,8 +92,8 @@
     <div class="container">
       <h2 class="text-center mb-3">Featured Listings</h2>
       <div class="row">
-        {% if listings %}
-          {% for listing in listings %}
+        {% if listings_all %}
+          {% for listing in listings_all %}
             <!-- Listing 1 -->
             <div class="col-md-6 col-lg-4 mb-4">
               <div class="card listing-preview">
@@ -101,9 +109,15 @@
                   </div>
                   <div class="col-6">
                     <div class="card-img-overlay">
+                      {%if listing.is_to_rent is True %}
+                      <h3>
+                        <span class="badge badge-secondary text-white">{{ listing.price | intcomma }}€ pcm</span>
+                      </h3>
+                      {%else%}
                       <h2>
                         <span class="badge badge-secondary text-white">{{ listing.price | intcomma }}€</span>
                       </h2>
+                      {%endif%}
                     </div>
                   </div>
                   </div>
