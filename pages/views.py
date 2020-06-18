@@ -33,4 +33,4 @@ def about(request):
     return render(request, 'pages/about.html', context)
 
 def test(request):
-    return render(request, 'email/inquiry.html')
+    return render(request, 'realtor_email/rent_inquiry.html')
