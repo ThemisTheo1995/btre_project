@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from listings.choices import price_choices, bedroom_choices, state_choices
+from listings.choices import price_choices, bedroom_choices, region_choices
 from listings.models import Listing
 
 
@@ -47,11 +47,11 @@ def rentsearch(request):
     if city:
       queryset_list1 = queryset_list1.filter(city__iexact=city)
 
-  # State
-  if 'state' in request.GET:
-    state = request.GET['state']
-    if state:
-      queryset_list1 = queryset_list1.filter(state__iexact=state)
+  # Location
+  if 'location' in request.GET:
+    location = request.GET['location']
+    if location:
+      queryset_list1 = queryset_list1.filter(location__icontains=location)
 
   # Bedrooms
   if 'bedrooms' in request.GET:
@@ -64,13 +64,18 @@ def rentsearch(request):
     price = request.GET['price']
     if price:
       queryset_list1 = queryset_list1.filter(price__lte=price)
+  #Region
+  if 'region' in request.GET:
+    region = request.GET['region']
+    if region:
+      queryset_list1 = queryset_list1.filter(region__iexact=region)
 
   context = {
+      'region_choices':region_choices,
       'rent':queryset_list1,
-      'state_choices': state_choices,
       'bedroom_choices': bedroom_choices,
       'price_choices': price_choices,
-      'values': request.GET
+      'values': request.GET,
   }
   
   return render(request, 'rent/rentsearch.html', context)

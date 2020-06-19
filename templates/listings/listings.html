@@ -10,7 +10,7 @@
       <div class="row text-center">
         <div class="col-md-12">
           <h1 class="display-4">Browse Our For Sale Properties</h1>
-          <p class="lead">Find to buy your Greek home!</p>
+          <p class="lead">Everyone of us has a piece of Greece inside. Explore yours by living as a local!</p>
         </div>
       </div>
     </div>
@@ -73,7 +73,7 @@
                     <div class="listing-heading">
                       <b><a href= "{% url 'listing' listing.id %}" class="text-primary">{{ listing.title }} </a></b>
                       <p>
-                        <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}</p>
+                        <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.region }}, {{ listing.zipcode }}</p>
                     </div>
                   </div>
                   <div class="col-6">

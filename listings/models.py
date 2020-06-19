@@ -1,6 +1,26 @@
 from django.db import models
 from datetime import datetime
 from realtors.models import Realtor
+from django.contrib.postgres.fields import ArrayField
+
+region = (
+        ('Attica', 'Attica'),
+        ('Central Greece', 'Central Greece'),
+        ('Central Macedonia', 'Central Macedonia'),
+        ('Crete', 'Crete'),
+        ('Eastern Macedonia', 'Eastern Macedonia'),
+        ('Thrace', 'Thrace'),
+        ('Epirus', 'Epirus'),
+        ('Ionian Islands', 'Ionian Islands'),
+        ('North Aegean', 'North Aegean'),
+        ('Peloponnese', 'Peloponnese'),
+        ('South Aegean', 'South Aegean'),
+        ('Thessaly', 'Thessaly'),
+        ('Western Greece', 'Western Greece'),
+        ('Western Macedonia', 'Western Macedonia'),
+)
+
+
 
 
 class Listing(models.Model):
@@ -8,8 +28,9 @@ class Listing(models.Model):
   title = models.CharField(max_length=200)
   address = models.CharField(max_length=200)
   city = models.CharField(max_length=100)
-  state = models.CharField(max_length=100)
+  region = models.CharField(max_length=100,choices=region,default='Attica')
   zipcode = models.CharField(max_length=20)
+  location = models.TextField()
   description = models.TextField(blank=True)
   price = models.IntegerField()
   bedrooms = models.IntegerField()

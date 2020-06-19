@@ -11,56 +11,71 @@
         <div class="col-md-12">
           <form action="{% url 'salesearch' %}">
             <!-- Form Row 1 -->
+
+
+
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label class="sr-only">Keywords</label>
-                <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)" value="{{ values.keywords }}">
+                <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)" value ={{values.keywords}}>
               </div>
+
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Region</label>
+                <select name="region" class="form-control">
+                  <option selected="true" disabled="disabled">Region (All)</option>
+                  {% for key,value in region_choices.items %}
+                    <option value="{{ key }}"
+                    {%if key == values.region %}
+                      selected 
+                    {% endif %}
+                    >{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            
 
               <div class="col-md-4 mb-3">
                 <label class="sr-only">City</label>
-                <input type="text" name="city" class="form-control" placeholder="City" value="{{ values.city }}">
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <label class="sr-only">State</label>
-                <select name="state" class="form-control">
-                  <option selected="true" disabled="disabled">State (All)</option>
-                  {% for key,value in state_choices.items %}
-                      <option value="{{ key }}" 
-                      {% if key == values.state %}
-                        selected
-                      {% endif %}
-                      >{{ value }}</option>
-                    {% endfor %}
-                </select>
+                <input type="text" name="city" class="form-control" placeholder="City" value={{values.city}}>
               </div>
             </div>
+              
             <!-- Form Row 2 -->
             <div class="form-row">
-              <div class="col-md-6 mb-3">
+              <div class="col-md-4 mb-3">
+              <label class="sr-only">Location</label>
+              <input type="text" name="location" id="location_search" class="form-control" placeholder="Location" value ={{values.location}}>
+              </div>
+              <script>
+              function activatePlacesSearch(){
+              var input = document.getElementById('location_search');
+              var autocomplete = new google.maps.places.Autocomplete(input);
+              }
+              </script>
+              <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTvH62eDRDBLJQSMFReQsIpHXkY29QFcg&libraries=places&callback=activatePlacesSearch"></script>
+            
+              <div class="col-md-4 mb-3">
                 <label class="sr-only">Bedrooms</label>
                 <select name="bedrooms" class="form-control">
-                  <option selected="true" disabled="disabled">Bedrooms (Any)</option>
+                  <option selected="true" disabled="disabled">Bedrooms (All)</option>
                   {% for key,value in bedroom_choices.items %}
-                      <option value="{{ key }}"
-                      {% if key == values.bedrooms %}
-                        selected
-                      {% endif %}
-                      >{{ value }}</option>
-                    {% endfor %}
+                    <option value="{{ key }}"
+                    {%if key == values.bedrooms %}
+                    selected 
+                  {% endif %}>{{ value }}</option>
+                  {% endfor %}
                 </select>
               </div>
-              <div class="col-md-6 mb-3">
-                <select name="price" class="form-control">
-                  <option selected="true" disabled="disabled">Max Price (All)</option>
+              <div class="col-md-4 mb-3">
+                <select name="price" class="form-control" id="type">
+                  <option selected="true" disabled="disabled">Max Price (Any)</option>
                   {% for key,value in price_choices.items %}
-                      <option value="{{ key }}"
-                      {% if key == values.price %}
-                        selected
-                      {% endif %}
-                      >{{ value }}</option>
-                    {% endfor %}
+                    <option value="{{ key }}"
+                    {%if key == values.price %}
+                      selected 
+                    {% endif %}>{{ value }}</option>
+                  {% endfor %}
                 </select>
               </div>
             </div>
@@ -71,10 +86,14 @@
               </div>
             </div>
           </form>
+
+          
+
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Breadcrumb -->
   <section id="bc" class="mt-3">
@@ -134,7 +153,7 @@
                     <div class="listing-heading">
                       <b><a href= "{% url 'listing' listing.id %}" class="text-primary">{{ listing.title }} </a></b>
                       <p>
-                        <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}</p>
+                        <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.region }}, {{ listing.zipcode }}</p>
                     </div>
                   </div>
                   <div class="col-6">
