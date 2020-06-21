@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from listings.choices import price_choices, bedroom_choices, region_choices
+from listings.choices import price_choices, bedroom_choices, region_choices, city_choices
 from listings.models import Listing
 
 
@@ -76,6 +76,7 @@ def rentsearch(request):
       'bedroom_choices': bedroom_choices,
       'price_choices': price_choices,
       'values': request.GET,
+      'city_choices':city_choices,
   }
   
   return render(request, 'rent/rentsearch.html', context)

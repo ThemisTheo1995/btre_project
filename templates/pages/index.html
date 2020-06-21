@@ -45,13 +45,22 @@
 
               <div class="col-md-4 mb-3">
                 <label class="sr-only">City</label>
-                <input type="text" name="city" class="form-control" placeholder="City" value={{values.city}}>
+                <select name="city" class="form-control">
+                  <option selected="true" disabled="disabled">City (All)</option>
+                  {% for key,value in city_choices.items %}
+                    <option value="{{ key }}"
+                    {%if key == values.city %}
+                      selected 
+                    {% endif %}
+                    >{{ value }}</option>
+                  {% endfor %}
+                </select>
               </div>
-            </div>
+              </div>
               
             <!-- Form Row 2 -->
             <div class="form-row">
-              <div class="col-md-4 mb-3">
+               <div class="col-md-4 mb-3">
               <label class="sr-only">Location</label>
               <input type="text" name="location" id="location_search" class="form-control" placeholder="Location" value ={{values.location}}>
               </div>
@@ -62,7 +71,7 @@
               }
               </script>
               <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTvH62eDRDBLJQSMFReQsIpHXkY29QFcg&libraries=places&callback=activatePlacesSearch"></script>
-            
+              
               <div class="col-md-4 mb-3">
                 <label class="sr-only">Bedrooms</label>
                 <select name="bedrooms" class="form-control">

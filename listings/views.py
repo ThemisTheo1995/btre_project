@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from .choices import price_choices, bedroom_choices, region_choices
+from .choices import price_choices, bedroom_choices, region_choices, city_choices
 from django.http import HttpResponse
 from .models import Listing
 
@@ -44,12 +44,6 @@ def salesearch(request):
     if city:
       queryset_list = queryset_list.filter(city__icontains=city)
 
-  # Location
-  if 'location' in request.GET:
-    location = request.GET['location']
-    if location:
-      queryset_list = queryset_list.filter(location__istartswith=location)
-
   # Bedrooms
   if 'bedrooms' in request.GET:
     bedrooms = request.GET['bedrooms']
@@ -68,11 +62,18 @@ def salesearch(request):
     if region:
       queryset_list = queryset_list.filter(region__iexact=region)
 
+    # Location
+  if 'location' in request.GET:
+    location = request.GET['location']
+    if location:
+      queryset_list = queryset_list.filter(location__icontains=location)
+
   context = {
     'region_choices':region_choices,
     'bedroom_choices': bedroom_choices,
     'price_choices': price_choices,
     'listings': queryset_list,
+    'city_choices':city_choices,
     'values': request.GET,
   }
 

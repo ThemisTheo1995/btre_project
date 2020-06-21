@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from listings.choices import price_choices, bedroom_choices, region_choices
+from listings.choices import price_choices, bedroom_choices, region_choices, city_choices
 from listings.models import Listing
 from realtors.models import Realtor
 
@@ -11,7 +11,9 @@ def index(request):
         'region_choices':region_choices,
         'listings_all': listings_all,
         'bedroom_choices': bedroom_choices,
-        'price_choices': price_choices
+        'price_choices': price_choices,
+        'city_choices': city_choices,
+
     }
 
     return render(request, 'pages/index.html', context)
@@ -32,4 +34,4 @@ def about(request):
     return render(request, 'pages/about.html', context)
 
 def test(request):
-    return render(request, 'realtor_email/rent_inquiry.html')
+    return render(request, 'accounts/welcome.html')

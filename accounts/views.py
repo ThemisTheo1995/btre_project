@@ -1,9 +1,11 @@
 from django.shortcuts import render
-
+from django.template import loader
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from contacts.models import Contact
+
 
 def register(request):
   if request.method == 'POST':
@@ -34,6 +36,24 @@ def register(request):
           # return redirect('index')
           user.save()
           messages.success(request, 'You are now registered and can log in')
+          #Email Send
+          html_message = loader.render_to_string(
+              'accounts/welcome.html',
+              {
+                'username':username,
+                'last_name':last_name,
+                'first_name':first_name,
+                'email':email,
+                }
+                )  
+          send_mail(
+              'Property Listing Inquiry',
+              '',
+              'mxtrealestate@gmail.com',
+              [email, 'themistheodoratos@gmail.com'],
+              fail_silently=False,
+              html_message=html_message
+            )
           return redirect('login')
     else:
       messages.error(request, 'Passwords do not match')

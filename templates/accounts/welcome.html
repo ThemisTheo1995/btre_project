@@ -230,7 +230,6 @@ table{
 }
 
 .text-author{
-	bordeR: 1px solid rgba(0, 0, 0, 0.048);
 	max-width: 70%;
 	margin: 0 auto;
 	padding: 2em;
@@ -279,121 +278,114 @@ ul.social li{
 }
 
 
+
     </style>
 
 
 </head>
 
 <body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #f1f1f100;">
-  <center style="width: 100%; background-color: #f1f1f100;">
+    <center style="width: 100%; background-color: #f1f1f100;">
     <div style="display: none; font-size: 1px;max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-      &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+    &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
     </div>
     <div style="max-width: 600px; margin: 0 auto;" class="email-container">
-    	<!-- BEGIN BODY -->
-      <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" background="https://cdn.pixabay.com/photo/2020/06/03/19/52/door-5256194_960_720.jpg" width="100%" style="margin: auto;">
-      	<tr>
-          <td valign="top" class="bg_white" style="padding: 1em 2.5em 0 2.5em;">
-          	<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-          		<tr>
-          			<td class="logo" style="text-align: center;">
-			            <h1><a href="{%url 'index'%}">MXT Real Estate.</a></h1>
-			          </td>
-          		</tr>
-          	</table>
-          </td>
-	      </tr><!-- end tr -->
-				<tr>
+        <!-- BEGIN BODY -->
+    <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" background="https://image.freepik.com/free-vector/market-launch-concept-illustration_114360-1479.jpg" width="100%" style="margin: auto;">
+        <tr>
+        <td valign="top" class="bg_white" style="padding: 1em 2.5em 0 2.5em;">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td class="logo" style="text-align: center;">
+                        <h1><a href="{%url 'index'%}">MXT Real Estate.</a></h1>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        </tr><!-- end tr -->
+                <tr>
           <td valign="middle" class="hero bg_white" style="padding: 2em 0 4em 0;">
             <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
             	<tr>
             		<td style="padding: 0 2.5em; text-align: center; padding-bottom: 3em;">
             			<div class="text">
-            				<h3>Hey, <b>{{ realtor_name }} </b>there is an inquiry for your property! 🏡</h3>
+            				<h2>Thank you for registering with us {{first_name}}!</h2>
             			</div>
             		</td>
             	</tr>
             	<tr>
 			          <td style="text-align: center;">
-			          	<div class="text-author">
-				          	<img src="{{ listing_image.url }}" alt="" style="width: 100px; max-width: 600px; height: auto; margin: auto; display: block;">
-				          	<h2 class="name">{{name}}'s inquiry for</h2>
-                              <span href ="64.227.74.223/rent/{{listing_id}}" class="position"> <b><h2>{{ listing }}</h2></b> </span>
-                              
-                              <h2><u>Message</u></h2>
-                              <span class="position">{{ message }}</span>
-                              <br>
-                              
-                              <p><a href="64.227.74.223/rent/{{listing_id}}" class="btn btn-primary">See the Property</a></p>
-                               <p><a href="{% url 'index' %}" class="btn-custom">M X T Real Estate</a></p>
-                               
-                             
-                               <h4 class="phone"><b>You can contact {{name}} at:</b><br> {{phone}} ☎️ <br> <b>or via email:</b> <br>{{email}} </h4>
+                          <div class = "text-author"> 
+				          	<img src="https://media-exp1.licdn.com/dms/image/C5603AQFrAh-CSCnpRw/profile-displayphoto-shrink_200_200/0?e=1597881600&v=beta&t=w9L9pznuuEt96MbWr-Vqel5Jvsxb-8ldapR9Eq00Doc" alt="" style="width: 100px; max-width: 600px; height: auto; margin: auto; display: block;">
+                            </div>
+                              <h3 class="name">Marios & Theo Theodoratos</h3>
+				          	<span class="position">M X T Real Estate Founders</span>
+                               <p><a href="{% url 'listings'%}" class="btn btn-primary">Properties for Sale</a></p>
+                               <p><a href="{% url 'rent'%}" class="btn btn-primary">Properties to Rent</a></p>
+				           	<p><a href="{% url 'login' %}" class="btn-custom">Login</a></p>
 			           	</div>
 			          </td>
 			        </tr>
             </table>
           </td>
-          
-          </tr><!-- end tr -->
-          
+	      </tr><!-- end tr -->
       <!-- 1 Column Text + Button : END -->
-      </table>
-      <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
-      	<tr>
-          <td valign="middle" class="bg_light footer email-section">
-            <table>
-            	<tr>
-                <td valign="top" width="45.000%" style="padding-top: 20px;">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                    <tr>
-                      <td style="text-align: left; padding-right: 10px;">
-                      	<h3 class="heading">About</h3>
-                      	<p>We believe, every person in the world should find the home of his/her dreams. We make it happen with the best Real Estate services in the world.</p>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-                <td valign="top" width="27.333%" style="padding-top: 20px;">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                    <tr>
-                      <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
-                      	<h3 class="heading">Contact Info</h3>
-                      	<ul>
-					                <li><span class="text"> Crewe Street Chester, CH1 3DA, North England, United Kingdom</span></li>
-					                <li><span class="text">+30 6975671208</span></a></li>
-					              </ul>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-                <td valign="top" width="27.333%" style="padding-top: 20px;">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                    <tr>
-                      <td style="text-align: left; padding-left: 10px;">
-                      	<h3 class="heading">Links</h3>
-                      	<ul>
-					                <li><a href="{% url 'index' %}">Home</a></li>
-					                <li><a href="{% url 'about' %}">About</a></li>
-					                <li><a href="{% url 'salesearch' %}">For Sale</a></li>
-					                <li><a href="{% url 'rentsearch' %}">To Rent</a></li>
-					              </ul>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr><!-- end: tr -->
+    </table>
+    <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
         <tr>
-          <td class="bg_light" style="text-align: center;">
-          	<p>No longer want to receive these email? You can <a href="#" style="color: rgba(0,0,0,.8);">Unsubscribe here</a></p>
-          </td>
-        </tr>
-      </table>
+        <td valign="middle" class="bg_light footer email-section">
+          <table>
+              <tr>
+              <td valign="top" width="45.000%" style="padding-top: 20px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                  <tr>
+                    <td style="text-align: left; padding-right: 10px;">
+                        <h3 class="heading">About</h3>
+                        <p>We believe, every person in the world should find the home of his/her dreams. We make it happen with the best Real Estate services in the world.</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td valign="top" width="27.333%" style="padding-top: 20px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                  <tr>
+                    <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
+                        <h3 class="heading">Contact Info</h3>
+                        <ul>
+                                  <li><span class="text"> Crewe Street Chester, CH1 3DA, North England, United Kingdom</span></li>
+                                  <li><span class="text">+30 6975671208</span></a></li>
+                                </ul>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td valign="top" width="27.333%" style="padding-top: 20px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                  <tr>
+                    <td style="text-align: left; padding-left: 10px;">
+                        <h3 class="heading">Links</h3>
+                        <ul>
+                                  <li><a href="{% url 'index' %}">Home</a></li>
+                                  <li><a href="{% url 'about' %}">About</a></li>
+                                  <li><a href="{% url 'salesearch' %}">For Sale</a></li>
+                                  <li><a href="{% url 'rentsearch' %}">To Rent</a></li>
+                                </ul>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr><!-- end: tr -->
+      <tr>
+        <td class="bg_light" style="text-align: center;">
+            <p>No longer want to receive these email? You can <a href="#" style="color: rgba(0,0,0,.8);">Unsubscribe here</a></p>
+        </td>
+      </tr>
+    </table>
 
-    </div>
-  </center>
+  </div>
+</center>
 </body>
 </html>
