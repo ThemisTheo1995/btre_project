@@ -1,3 +1,6 @@
+
+
+
 bedroom_choices = {
   '1':1,
   '2':2,
@@ -10,6 +13,8 @@ bedroom_choices = {
   '9':9,
   '10':10
   }
+
+
 
 price_choices = {
   '50000':'50,000€',
@@ -553,3 +558,4 @@ region_model = (
         ('Western Greece', 'Western Greece'),
         ('Western Macedonia', 'Western Macedonia'),
 )
+

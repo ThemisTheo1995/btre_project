@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
+    "mapbox_location_field",
     'rent.apps.RentConfig',
     'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',
@@ -84,7 +85,7 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'btredb',
+        'NAME': 'btredb0',
         'USER': 'postgres',
         'PASSWORD':'12345678',
         'HOST': 'localhost'
@@ -152,4 +153,4 @@ try:
 except ImportError:
     pass
 
-
+MAPBOX_KEY = "pk.eyJ1IjoidGhlbWlzdGhlbzE5OTUiLCJhIjoiY2tidGlyZ2xrMGE1aDJ6bWkzZnlwM2t4aiJ9.QZXJ0ujvaC2sScu_VmT9zg"

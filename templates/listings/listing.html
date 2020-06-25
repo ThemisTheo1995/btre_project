@@ -126,12 +126,14 @@
                 <!--Google Maps API-->
                 <div id="map"></div>
                 <script>
+                  
   
-                  let lat = "{{listing.lat}}";
-                  let lng = "{{listing.lng}}";
-                  let geo_lat = parseFloat(lat);
-                  let geo_lng = parseFloat(lng);
-  
+                  let lat = "{{geo_lat}}";
+                  let lng = "{{geo_lng}}";
+                  let geo_lng = parseFloat(lat);
+                  let geo_lat = parseFloat(lng);
+                  
+
                   function initMap(){
                     // Map options
                     var myLatLng = {lat:geo_lat, lng:geo_lng};
@@ -199,11 +201,11 @@
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-money-bill-alt"></i> Asking Price:
+                  <i class="fas fa-money-bill-alt"></i>Asking Price:
                   <span class="float-right">{{ listing.price | intcomma }}€</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bed"></i> Bedrooms:
+                  <i class="fas fa-bed"></i> {{listing.hidden}}Bedrooms:
                   <span class="float-right">{{ listing.bedrooms }}</span>
                 </li>
                 <li class="list-group-item text-secondary">

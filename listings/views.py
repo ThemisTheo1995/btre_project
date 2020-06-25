@@ -3,6 +3,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import price_choices, bedroom_choices, region_choices, city_choices
 from django.http import HttpResponse
 from .models import Listing
+import json
 
 
 
@@ -21,9 +22,14 @@ def index(request):
 
 def listing(request, listing_id):
   listing = get_object_or_404(Listing, pk=listing_id)
+  geo_lat = listing.location[0]
+  geo_lng = listing.location[1]
 
   context = {
+    'geo_lat':geo_lat,
+    'geo_lng':geo_lng,
     'listing': listing,
+  
     
   }
 
@@ -31,6 +37,7 @@ def listing(request, listing_id):
 
 def salesearch(request):
   queryset_list = Listing.objects.order_by('-list_date').filter(is_for_sale=True)
+  
   
   # Keywords
   if 'keywords' in request.GET:
@@ -69,6 +76,7 @@ def salesearch(request):
       queryset_list = queryset_list.filter(location__icontains=location)
 
   context = {
+    
     'region_choices':region_choices,
     'bedroom_choices': bedroom_choices,
     'price_choices': price_choices,
@@ -79,3 +87,6 @@ def salesearch(request):
 
   return render(request, 'listings/salesearch.html', context)
   return
+
+
+
