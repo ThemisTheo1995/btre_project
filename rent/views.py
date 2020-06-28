@@ -1,14 +1,18 @@
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from listings.choices import price_choices, bedroom_choices, region_choices, city_choices
+from listings.choices import price_choices, bedroom_choices, region_choices, city_choices, property_type, round_down
 from listings.models import Listing
+import requests
+from urllib.parse import urlencode
 
 
 
+
+
+GOOGLE_API_KEY = "AIzaSyDTvH62eDRDBLJQSMFReQsIpHXkY29QFcg"
 
 def index(request):
   rent = Listing.objects.order_by('-list_date').filter(is_published=True, is_to_rent = True)
-
   paginator = Paginator(rent, 3)
   page = request.GET.get('page')
   paged_listings = paginator.get_page(page)
@@ -19,21 +23,21 @@ def index(request):
 
   return render(request, 'rent/rent.html', context)
 
-
-
 def rentlisting(request, rent_id):
   rentlisting = get_object_or_404(Listing, pk=rent_id)
+  geo_lat = rentlisting.location[0]
+  geo_lng = rentlisting.location[1]
 
   context = {
+    'geo_lat':geo_lat,
+    'geo_lng':geo_lng,
     'rentlisting': rentlisting,
   }
 
   return render(request, 'rent/rentlisting.html', context)
 
-
-
 def rentsearch(request):
-  queryset_list1 = Listing.objects.order_by('-list_date').filter(is_to_rent=True)
+  queryset_list1 = Listing.objects.order_by('-list_date').filter(is_to_rent=True, is_published=True)
   
     # Keywords
   if 'keywords' in request.GET:
@@ -47,28 +51,46 @@ def rentsearch(request):
     if city:
       queryset_list1 = queryset_list1.filter(city__iexact=city)
 
-  # Location
-  if 'location' in request.GET:
-    location = request.GET['location']
-    if location:
-      queryset_list1 = queryset_list1.filter(location__icontains=location)
-
-  # Bedrooms
+    # Bedrooms
   if 'bedrooms' in request.GET:
     bedrooms = request.GET['bedrooms']
     if bedrooms:
       queryset_list1 = queryset_list1.filter(bedrooms__lte=bedrooms)
 
-  # Price
+    # Price
   if 'price' in request.GET:
     price = request.GET['price']
     if price:
       queryset_list1 = queryset_list1.filter(price__lte=price)
-  #Region
+
+    #Region
   if 'region' in request.GET:
     region = request.GET['region']
     if region:
       queryset_list1 = queryset_list1.filter(region__iexact=region)
+  
+  # Location
+  if 'location' in request.GET:
+    location = request.GET['location']
+    if len(location)>0: 
+    # geocoding API
+      endpoint = f"https://maps.googleapis.com/maps/api/geocode/json"
+      params = {"address": location, "key": GOOGLE_API_KEY}
+      url_params = urlencode(params)
+      url = f"{endpoint}?{url_params}"
+      r = requests.get(url)
+      if r.status_code not in range(200, 299): 
+          return {}
+      latlng = r.json()['results'][0]['geometry']['location']
+      
+      geo_lat = round_down(latlng.get("lat"),1)
+      geo_lng = round_down(latlng.get("lng"),1)
+      geo_latlng = "{},{}".format(geo_lng,geo_lat)
+    # end of geocoding API
+    
+      if location:
+        queryset_list1 = queryset_list1.filter(geo_lat__icontains = geo_lat,geo_lng__icontains=geo_lng)
+
 
   context = {
       'region_choices':region_choices,
@@ -77,6 +99,7 @@ def rentsearch(request):
       'price_choices': price_choices,
       'values': request.GET,
       'city_choices':city_choices,
+      'property_type': property_type,
   }
   
   return render(request, 'rent/rentsearch.html', context)

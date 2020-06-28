@@ -12,9 +12,6 @@ class ListingAdmin(MapAdmin):
   search_fields = ('title', 'description', 'address', 'city', 'location', 'zipcode', 'price')
   list_per_page = 25
 
-
-
-
 admin.site.register(Listing, ListingAdmin)
 
 

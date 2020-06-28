@@ -124,10 +124,10 @@
               <div id="map"></div>
               <script>
 
-                let lat = "{{rentlisting.lat}}";
-                let lng = "{{rentlisting.lng}}";
-                let geo_lat = parseFloat(lat);
-                let geo_lng = parseFloat(lng);
+                let lat = "{{geo_lat}}";
+                let lng = "{{geo_lng}}";
+                let geo_lng = parseFloat(lat);
+                let geo_lat = parseFloat(lng);
 
                 function initMap(){
                   // Map options
@@ -224,8 +224,8 @@
                   <span class="float-right">{{ rentlisting.sqft }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-square"></i> Lot Size:
-                  <span class="float-right">{{ rentlisting.lot_size }} Acres
+                  <i class="fas fa-square"></i> Property Type:
+                  <span class="float-right">{{ rentlisting.property_type }} 
                   </span>
                 </li>
                 <li class="list-group-item text-secondary">
