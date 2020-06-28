@@ -15,12 +15,12 @@
 
 
             <div class="form-row">
-              <div class="col-md-4 mb-3">
+              <div class="col-md-4 mb-2">
                 <label class="sr-only">Keywords</label>
                 <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)" value ={{values.keywords}}>
               </div>
 
-              <div class="col-md-4 mb-3">
+              <div class="col-md-4 mb-2">
                 <label class="sr-only">Region</label>
                 <select name="region" class="form-control">
                   <option selected="true" disabled="disabled">Region (All)</option>
@@ -35,7 +35,7 @@
               </div>
             
 
-              <div class="col-md-4 mb-3">
+              <div class="col-md-4 mb-2">
                 <label class="sr-only">City</label>
                 <select name="city" class="form-control">
                   <option selected="true" disabled="disabled">City (All)</option>
@@ -52,7 +52,7 @@
               
             <!-- Form Row 2 -->
             <div class="form-row">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-2">
               <label class="sr-only">Location</label>
               <input type="text" name="location" id="location_search" class="form-control" placeholder="Location" value ={{values.location}}>
               </div>
@@ -64,7 +64,7 @@
               </script>
               <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTvH62eDRDBLJQSMFReQsIpHXkY29QFcg&libraries=places&callback=activatePlacesSearch"></script>
             
-              <div class="col-md-4 mb-3">
+              <div class="col-md-4 mb-2">
                 <label class="sr-only">Bedrooms</label>
                 <select name="bedrooms" class="form-control">
                   <option selected="true" disabled="disabled">Bedrooms (All)</option>
@@ -76,7 +76,7 @@
                   {% endfor %}
                 </select>
               </div>
-              <div class="col-md-4 mb-3">
+              <div class="col-md-4 mb-2">
                 <select name="price" class="form-control" id="type">
                   <option selected="true" disabled="disabled">Max Price (Any)</option>
                   {% for key,value in price_choices.items %}
@@ -89,9 +89,9 @@
               </div>
             </div>
             <div class="form-row">
-              <div class ="col-md-6 mb-3"><button class="btn btn-secondary btn-block mt-4" type="submit" formaction="{% url 'salesearch' %}">For Sale</button>
+              <div class ="col-md-6 mb-2"><button class="btn btn-secondary btn-block mt-4" type="submit" formaction="{% url 'salesearch' %}">FOR SALE</button>
               </div>
-              <div class ="col-md-6 mb-3"><button class="btn btn-secondary btn-block mt-4" type="submit" formaction="{% url 'rentsearch' %}">To Rent</button>
+              <div class ="col-md-6 mb-2"><button class="btn btn-secondary btn-block mt-4" type="submit" formaction="{% url 'rentsearch' %}">TO RENT</button>
               </div>
             </div>
           </form>

@@ -28,6 +28,14 @@ img {
   color: rgb(255, 255, 255);
   padding-top: 6rem; }
 
+@media (max-width: 576px) {
+    #showcase {
+  background: url(../img/showcase.jpg) no-repeat top center fixed ;
+  position: relative;
+  min-height: 630px;
+  color: rgb(255, 255, 255);
+  padding-top: 6rem; } }
+
 
   #showcase .home-search {
     min-height: 400px;

@@ -32,10 +32,10 @@
                 </script>
                 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTvH62eDRDBLJQSMFReQsIpHXkY29QFcg&libraries=places&callback=activatePlacesSearch"></script>
             </div>
-            <div class="form-row">
-              <div class ="col-md-6 mb-3"><button class="btn btn-secondary btn-block mt-4" type="submit" formaction="{% url 'salesearch' %}">FOR SALE</button>
+            <div class="form-row-btns">
+              <div class ="col-md-6 mb-2"><button class="btn btn-secondary btn-block mt-4" type="submit" formaction="{% url 'salesearch' %}">FOR SALE</button>
               </div>
-              <div class ="col-md-6 mb-3"><button class="btn btn-secondary btn-block mt-4" type="submit" formaction="{% url 'rentsearch' %}">TO RENT</button>
+              <div class ="col-md-6 mb-2"><button class="btn btn-secondary btn-block mt-4" type="submit" formaction="{% url 'rentsearch' %}">TO RENT</button>
               </div>
             </div>
           </form>
@@ -54,7 +54,7 @@
   <!-- Listings -->
   <section id="listings" class="py-5">
     <div class="container">
-      <h2 class="text-center mb-3">Featured Listings</h2>
+      <h2 class="text-center mb-3">Listing of featured properties</h2>
       <div class="row">
         {% if listings_all %}
           {% for listing in listings_all %}
@@ -126,25 +126,24 @@
       <div class="row text-center">
         <div class="col-md-4">
           <i class="fas fa-comment fa-4x mr-4"></i>
-          <p>&nbsp;</p>
-          <p>&nbsp;</p>
+          
           <h3>Consulting Services</h3>
           <p></p>
-          
+          <hr>
         </div>
         <div class="col-md-4">
           <i class="fas fa-home fa-4x mr-4"></i>
-          <p>&nbsp;</p>
-          <p>&nbsp;</p>
+          
           <h3>Propery Management</h3>
           <p></p>
+          <hr>
         </div>
         <div class="col-md-4">
           <i class="fas fa-suitcase fa-4x mr-4"></i>
-          <p>&nbsp;</p>
-          <p>&nbsp;</p>
+          
           <h3>Renting & Selling</h3>
           <p></p>
+          <hr>
         </div>
 
 
