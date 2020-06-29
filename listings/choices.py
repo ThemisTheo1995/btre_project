@@ -6,14 +6,14 @@ def round_down(n, decimals=0):
 
 
 
-property_type = {
+property_type = (
   ('Studio','Studio'),
   ('House','House'),
   ('Flat/Appartment','Flat/Appartment'),
   ('Bungalow', 'Bungalow'),
   ('Land', 'Land'),
   ('Commercial Property','Commercial Property')
-}
+)
 
 bedroom_choices = {
   '1':1,
