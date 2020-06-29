@@ -1,3 +1,80 @@
+input#location_search.form-control.pac-target-input{
+  height: calc(3.75rem + 2px);
+
+}
+
+section#login.bg-light.py-5{
+  background: url(../img/login_wall.png) no-repeat top center fixed ;
+  position: relative;
+  min-height: 875px;
+  
+}
+
+section#register.bg-light.py-5{
+  background: url(../img/login_wall.png) no-repeat top center fixed ;
+  position: relative;
+  min-height: 875px;
+  
+}
+
+
+.google-btn {
+  width: 100%;
+  height: 42px;
+  background-color: #4285f4;
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+  margin-top: 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, 
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;}
+  .google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .google-icon {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+  }
+
+ 
+  .btn-text {
+    float:  right;
+    margin: 11px 11px 0 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+    padding-right: 35%;
+    font-weight: 600;
+  }
+  .google-btn:hover {
+    box-shadow: 0 0 6px #4285f4;
+  }
+  .google-btn:active {
+    background: #1669F2;
+  }
+  @media (max-width: 1199px){
+    .btn-text {
+      float:  right;
+      margin: 11px 11px 0 0;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      padding-right: 3%;
+      font-family: "Roboto";
+      font-weight: 600;
+    }
+  }
+
+
 .btn-secondary {
   color: #fff !important; }
 
@@ -48,7 +125,8 @@ img {
     left: 0;
     min-height: 300px;
     width: 100%;
-    background: rgba(51, 51, 51, 0.15); }
+    background: rgba(51, 51, 51, 0.15);
+    margin-top: 50px; }
 
 #services {
   background: url(../img/building.jpg) no-repeat top center fixed;

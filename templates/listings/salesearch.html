@@ -54,11 +54,11 @@
             <div class="form-row">
                <div class="col-md-4 mb-2">
               <label class="sr-only">Location</label>
-              <input type="text" name="location" id="location_search" class="form-control" placeholder="Location" value ={{values.location}}>
+              <input type="text" name="location" id="location__search" class="form-control" placeholder="Location" value ={{values.location}}>
               </div>
               <script>
               function activatePlacesSearch(){
-              var input = document.getElementById('location_search');
+              var input = document.getElementById('location__search');
               var autocomplete = new google.maps.places.Autocomplete(input);
               }
               </script>
