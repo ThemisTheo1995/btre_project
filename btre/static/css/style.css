@@ -97,7 +97,7 @@ img {
 
 .social a {
   margin-right: 0.4rem; }
-
+  
 #showcase {
   background: url(../img/showcase.jpg) no-repeat top center fixed ;
   position: relative;
@@ -107,7 +107,7 @@ img {
 
 @media (max-width: 576px) {
     #showcase {
-  background: url(../img/showcase.jpg) no-repeat top center fixed ;
+  background: url(../img/showcase_mob.jpg) no-repeat top center fixed ;
   position: relative;
   min-height: 630px;
   color: rgb(255, 255, 255);

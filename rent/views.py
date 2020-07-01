@@ -81,15 +81,19 @@ def rentsearch(request):
       r = requests.get(url)
       if r.status_code not in range(200, 299): 
           return {}
+
+      # Combined data
       latlng = r.json()['results'][0]['geometry']['location']
+      city = r.json()['results'][0]['address_components'][0].get('long_name')
       
+      #breakdown
       geo_lat = round_down(latlng.get("lat"),1)
       geo_lng = round_down(latlng.get("lng"),1)
       geo_latlng = "{},{}".format(geo_lng,geo_lat)
-    # end of geocoding API
+      # end of geocoding API
     
       if location:
-        queryset_list1 = queryset_list1.filter(geo_lat__icontains = geo_lat,geo_lng__icontains=geo_lng)
+        queryset_list1 = queryset_list1.filter(geo_lat__icontains = geo_lat,geo_lng__icontains=geo_lng) or queryset_list1.filter(city__icontains =city)
 
 
   context = {
